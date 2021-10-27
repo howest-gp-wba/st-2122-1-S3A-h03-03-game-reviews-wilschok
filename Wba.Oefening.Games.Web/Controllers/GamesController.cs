@@ -23,11 +23,15 @@ namespace Wba.Oefening.Games.Web.Controllers
         public IActionResult Index()
         {
             var gamesIndexViewModel = new GamesIndexViewModel();
-            gamesIndexViewModel.Games = new List<string>();
+            gamesIndexViewModel.Games = new List<GamesDetailViewModel>();
 
             foreach(var game in _gameRepository.GetGames())
             {
-                gamesIndexViewModel.Games.Add(game.Title);
+                gamesIndexViewModel.Games.Add(new GamesDetailViewModel
+                {
+                    Id = game.Id,
+                    Title = game.Title
+                });
             }
 
             return View(gamesIndexViewModel);

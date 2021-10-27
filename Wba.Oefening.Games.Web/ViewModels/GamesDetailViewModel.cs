@@ -5,8 +5,9 @@ using System.Threading.Tasks;
 
 namespace Wba.Oefening.Games.Web.ViewModels
 {
-    public class GamesIndexViewModel
+    public class GamesDetailViewModel
     {
-        public List<GamesDetailViewModel> Games { get; set; }
+        public int Id { get; set; }
+        public string Title { get; set; }
     }
 }
