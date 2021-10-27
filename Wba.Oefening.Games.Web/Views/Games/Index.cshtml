@@ -1,0 +1,14 @@
+﻿@model GamesIndexViewModel
+
+@{
+    ViewData["Title"] = "Games";
+}
+
+<h2>Games</h2>
+
+<div class="card">
+    @foreach (var game in Model.Games)
+    {
+        <p>@game</p>
+    }
+</div>

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Wba.Oefening.Games.Core;
+using Wba.Oefening.Games.Web.ViewModels;
 
 namespace Wba.Oefening.Games.Web.Controllers
 {
@@ -21,7 +22,15 @@ namespace Wba.Oefening.Games.Web.Controllers
        
         public IActionResult Index()
         {
-            return Content("I should make a view + view model for this!");
+            var gamesIndexViewModel = new GamesIndexViewModel();
+            gamesIndexViewModel.Games = new List<string>();
+
+            foreach(var game in _gameRepository.GetGames())
+            {
+                gamesIndexViewModel.Games.Add(game.Title);
+            }
+
+            return View(gamesIndexViewModel);
         }
 
         
