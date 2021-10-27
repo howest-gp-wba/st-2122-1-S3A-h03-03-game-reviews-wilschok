@@ -9,6 +9,6 @@
 <div class="card">
     @foreach (var game in Model.Games)
     {
-        <p>@game.Title (@game.Id) </p>
+        <p><a class="list-group-item" href="/games/@game.Id">@game.Title</a></p>
     }
 </div>
